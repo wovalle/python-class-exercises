@@ -17,8 +17,8 @@ def binary_search(lst, look_for):
 
 list_of_data = [1,2,3,4,5,6,7,8,9]
 
-print 'pos', binary_search(list_of_data, 8)
-print 'pos', binary_search(list_of_data, 10)
+print('pos', binary_search(list_of_data, 8))
+print('pos', binary_search(list_of_data, 10))
 
 
 
