@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Massih forzador</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <h1>Esto es un titulo</h1>
+        <h3>Esto tambien, pero mas chiquito</h3>
+        <p id="parrafo1">Esto no es un titulo, es un parrafo</p>
+        <p id="parrafo2">yo tambien, lol</p>
+        <br />
+        <br />
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <button class="btn btn-danger" id="btn-super">Un super boton</button>
+        <button class="btn btn-dark">Otro super boton</button>
+        <button class="btn btn-dark">3 super boton</button>
+        <button class="btn btn-info">4 super boton</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function alerta() {
+      alert('Hola mundo');
+    }
+    document.getElementById('btn-super').addEventListener('click', alerta)
+  </script>
+</body>
+
+</html>
