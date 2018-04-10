@@ -27,19 +27,49 @@ def change(client_list):
 # print(change([{ "quantity": 2, "bill": 50 }, { "quantity": 4, "bill": 100}, {"quantity": 1, "bill": 25} ])) #True
 
 #Tema 3
-def add_fracs(f_list):
+def add_fracs(f_list = []):
+  if len(f_list) == 0:
+    return ''
+  
+  fractions, com_den = [], 1
+  
+  # Converting fractions into int pairs
   for f in f_list:
-    parts =  f.split('/')
+    parts = f.split('/')
+    fractions.append([int(parts[0]), int(parts[1])])
+  
+  # Looking for a common_denominator
+  for f in fractions:
+    com_den *= f[1]
+  
+  # Adding numerators (common_denominator / current_denominator ) * numerator
+  com_num = 0
+  for f in fractions:
+    com_num += (com_den // f[1]) * f[0]
+  
+  # Reducing fraction
+  for j in range(com_num):
+    reduced = False
+    for i in range(2, com_den):
+      if com_num % i == 0 and com_den % i == 0:
+        com_num, com_den = com_num // i, com_den // i
+        reduced = True
+
+    if reduced == False:
+      break
+
+  # If denominator == 0 return only numerator
+  return  "%i/%i" % (com_num, com_den) if com_den != 1 else "%i" % com_num
 
 
 
-# add_fracs() #=> ''
-# add_fracs(['1/2']) #=> '1/2'
-# add_fracs(['1/2', '1/4']) #=> '3/4'
-# add_fracs(['1/2', '3/4']) #=> '5/4'
-# add_fracs(['2/4', '6/4', '4/4']) #=> '3'
-# add_fracs(['2/3', '1/3', '4/6']) #=> '5/3'
-# add_fracs(['-2/3', '5/3', '-4/6']) #=> '1/3'
+# print(add_fracs()) #=> ''
+# print(add_fracs(['1/2'])) #=> '1/2'
+# print(add_fracs(['1/2', '1/4'])) #=> '3/4'
+# print(add_fracs(['1/2', '3/4'])) #=> '5/4'
+# print(add_fracs(['2/4', '6/4', '4/4'])) #=> '3'
+# print(add_fracs(['2/3', '1/3', '4/6'])) #=> '5/3'
+# print(add_fracs(['-2/3', '5/3', '-4/6'])) #=> '1/3'
 
 
 #Tema 4
